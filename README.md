@@ -341,4 +341,19 @@ Also, using `ssh` and `ssh -X` give different and clear error messages
 
 ## Is the local ThinLinc client a problem?
 
+![](ssh_no_x_works.png)
+
+> Using `ssh sven@rackham.uppmax.uu.se` works (!)
+
+![](ssh_x_works.png)
+
+> Using `ssh -X sven@rackham.uppmax.uu.se` works
+
+![](thinlinc_only_rstudio_works.png)
+
+> Using local ThinLinc, only loading `RStudio` works
+
+![](thinlinc_r_r_packages_rstudio_works.png)
+
+> Using local ThinLinc, loading `R`, `R_packages` and `RStudio` works
 
