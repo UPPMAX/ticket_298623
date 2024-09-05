@@ -2,6 +2,18 @@
 
 Notes for ticket 298623, related to [UPPMAX documentation #126](https://github.com/UPPMAX/UPPMAX-documentation/issues/126).
 
+## Suggested solution
+
+Use:
+
+```bash
+interactive -A sens2023598 -n 2 -t 8:00:00
+module load R/4.3.1 R_packages/4.3.1 RStudio/2023.12.1-402
+rstudio
+```
+
+## Investigation
+
 Hypothesis: not all RStudio versions work,
 user needs to load the one that is documented to work.
 
@@ -14,6 +26,7 @@ Questions:
   - Does loading this module also load R?
   - Does loading this module also load R_packages?
 - Does the `salloc` way of the user work?
+- Is the local ThinLinc client a problem?
 
 Questions with answers:
 
@@ -279,7 +292,7 @@ load the modules) use the module's full name.
 les.
 ```
 
-## `salloc`
+## Does the `salloc` way of the user work?
 
 ### `salloc` without X forwarding fails cleanly
 
@@ -323,3 +336,9 @@ RStudio/2023.12.1-402: Sandboxing is not enabled for RStudio at UPPMAX. See 'mod
 Segmentation fault (core dumped)
 [richel@r1180 richel]$ 
 ```
+
+Also, using `ssh` and `ssh -X` give different and clear error messages
+
+## Is the local ThinLinc client a problem?
+
+
