@@ -13,6 +13,7 @@ Questions:
 - Does the newer RStudio/2023.12.1-402 also works in the same way?
   - Does loading this module also load R?
   - Does loading this module also load R_packages?
+- Does the `salloc` way of the user work?
 
 Questions with answers:
 
@@ -189,4 +190,136 @@ You are welcome to redistribute it under the terms of the
 GNU General Public License versions 2 or 3.
 For more information about these matters see
 https://www.gnu.org/licenses/.
+```
+
+## R versions
+
+```
+[richel@r210 richel]$ module spider R
+
+----------------------------------------------------------------------------
+  R:
+----------------------------------------------------------------------------
+     Versions:
+        R/3.0.2
+        R/3.2.3
+        R/3.3.2
+        R/3.4.0
+        R/3.4.3
+        R/3.5.0
+        R/3.5.2
+        R/3.6.0
+        R/3.6.1
+        R/4.0.0
+        R/4.0.4
+        R/4.1.1
+        R/4.2.1
+        R/4.3.1
+        R/4.3.2
+     Other possible modules matches:
+        454-dataprocessing  ADMIXTURE  ANTLR  ARCS  ARC_assembler  ARPACK-NG  ..
+.
+```
+
+## R_packages
+
+```
+[richel@r210 richel]$ module spider R_packages
+
+----------------------------------------------------------------------------
+  R_packages:
+----------------------------------------------------------------------------
+     Versions:
+        R_packages/3.3.0
+        R_packages/3.3.1
+        R_packages/3.3.2
+        R_packages/3.4.0
+        R_packages/3.4.3
+        R_packages/3.5.0
+        R_packages/3.5.2
+        R_packages/3.6.0
+        R_packages/3.6.1
+        R_packages/4.0.0
+        R_packages/4.0.4
+        R_packages/4.1.1
+        R_packages/4.2.1
+        R_packages/4.3.1
+
+----------------------------------------------------------------------------
+  For detailed information about a specific "R_packages" package (including how 
+to load the modules) use the module's full name.
+```
+
+## RStudio versions
+
+```
+[richel@r210 richel]$ module spider Rstudio
+
+----------------------------------------------------------------------------
+  RStudio:
+----------------------------------------------------------------------------
+     Versions:
+        RStudio/1.0.136
+        RStudio/1.0.143
+        RStudio/1.0.153
+        RStudio/1.1.423
+        RStudio/1.1.463
+        RStudio/1.4.1106
+        RStudio/2022.02.0-443
+        RStudio/2022.02.3-492
+        RStudio/2022.07.1-554
+        RStudio/2023.06.0-421
+        RStudio/2023.06.2-561
+        RStudio/2023.12.1-402
+
+----------------------------------------------------------------------------
+  For detailed information about a specific "RStudio" package (including how to 
+load the modules) use the module's full name.
+  Note that names that have a trailing (E) are extensions provided by other modu
+les.
+```
+
+## `salloc`
+
+### `salloc` without X forwarding fails cleanly
+
+```
+[richel@rackham3 richel]$ salloc -t 2:00:00 -n 2 -A staff
+salloc: Pending job allocation 49962252
+salloc: job 49962252 queued and waiting for resources
+salloc: job 49962252 has been allocated resources
+salloc: Granted job allocation 49962252
+salloc: Waiting for resource configuration
+salloc: Nodes r1180 are ready for job
+ _   _ ____  ____  __  __    _    __  __
+| | | |  _ \|  _ \|  \/  |  / \   \ \/ /   | System:    r1180
+| | | | |_) | |_) | |\/| | / _ \   \  /    | User:      richel
+| |_| |  __/|  __/| |  | |/ ___ \  /  \    | 
+ \___/|_|   |_|   |_|  |_/_/   \_\/_/\_\   | 
+
+###############################################################################
+
+        User Guides: https://docs.uppmax.uu.se/
+
+        Write to support@uppmax.uu.se, if you have questions or comments.
+
+
+[richel@r1180 richel]$ module load R/4.3.1 R_packages/4.3.1 RStudio/2023.12.1-402
+R/4.3.1: Nearly all CRAN and BioConductor packages are installed and available by loading
+the module R_packages/4.3.1 
+R_packages/4.3.1: Note that loading some spatial analysis packages, especially geo-related packages, might
+R_packages/4.3.1: require you to load additional modules prior to use. monocle3 is such a package. See
+R_packages/4.3.1: 'module help R_packages/4.3.1'
+
+R_packages/4.3.1: The RStudio packages pane is disabled when loading this module, due to RStudio slowdowns
+R_packages/4.3.1: because there are >20000 available packages. *All packages are still available.*  For 
+R_packages/4.3.1: more information and instructions to re-enable the packages pane (not recommended) see
+R_packages/4.3.1: 'module help R_packages/4.3.1'
+
+RStudio/2023.12.1-402: Sandboxing is not enabled for RStudio at UPPMAX. See 'module help RStudio/2023.12.1-402' for more information
+[richel@r1180 richel]$ rstudio
+[16512:0905/090818.531827:ERROR:ozone_platform_x11.cc(241)] Missing X server or $DISPLAY
+[16512:0905/090818.531890:ERROR:env.cc(255)] The platform failed to initialize.  Exiting.
+Segmentation fault (core dumped)
+[richel@r1180 richel]$ 
 ```
