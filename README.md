@@ -2,15 +2,16 @@
 
 Notes for ticket 298623, related to [UPPMAX documentation #126](https://github.com/UPPMAX/UPPMAX-documentation/issues/126).
 
+## Hypothesis
+
+Using the Dardel server causes the problems
 
 ## Comms
 
 ```
-
 Unfortunately, after allocating a node using the official documentation also results in the same error:
 
-[cid:image001.png@01DB0042.0A789DC0]
-
+![](error_from_official_way.png)
 
 Regarding your questions:
 - Which operating system do you have?
@@ -53,10 +54,12 @@ See above for the modules that I always load before starting my analysis.
 Also I have another problem: Since I migrated my data to Dardel and started to login via the local Thinlinc application, I can’t login to Rackham anymore since the interface changed to the one before.
 
 Specifically, previously I was used to this window:
-[cid:image002.png@01DB0043.103020C0]
+
+![](user_login_rackham_local_thinlinc_client.png)
 
 However, now the window looks like this and I can’t find the area to put my password when I want to login to Rackham:
-[cid:image003.png@01DB0043.2B23D8E0]
+
+![](user_login_dardel_local_thinlinc_client.png)
 
 If that problem is solved I can also try to run the pipeline on the local ThinLinc instead of the web application, maybe this helps solving the Rstudio problem.
 
