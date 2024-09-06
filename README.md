@@ -8,63 +8,62 @@ Using the Dardel server causes the problems
 
 ## Comms
 
-```
-Unfortunately, after allocating a node using the official documentation also results in the same error:
+> Unfortunately, after allocating a node using the official documentation also results in the same error:
 
 ![](error_from_official_way.png)
 
-Regarding your questions:
-- Which operating system do you have?
-I’m using Apple macOS.
-- Can you run the program `xeyes` (UPPMAX documentation at
-https://docs.uppmax.uu.se/software/xeyes/ ) successfully?
-Yes.
-- What are the exact `salloc` and `ssh` commands you use?
-I’m using the following workflow:
-
-Allocate a node, and then ssh into it.
-salloc -A naiss2024-22-52 -p core -n 5 -t 9:30:00 --no-shell
-
-The output is:
-"salloc: Granted job allocation 42599833
-salloc: Waiting for resource configuration
-salloc: Nodes r485 are ready for job"
-
-Then ssh into the node you got. Here I got r485.
-ssh -X r485
-
-Load bioinformatic tools:
-module load bioinfo-tools
-
-Load R packages:
-module load R_packages
-
-Load R Studio:
-module load RStudio
-
-Open R Studio:
-rstudio
-
-- What are the exact modules you load? Note that only loading the `RStudio`
-module was recommended incorrectly!
-
-See above for the modules that I always load before starting my analysis.
-
-
-Also I have another problem: Since I migrated my data to Dardel and started to login via the local Thinlinc application, I can’t login to Rackham anymore since the interface changed to the one before.
-
-Specifically, previously I was used to this window:
+> Regarding your questions:
+> - Which operating system do you have?
+> I’m using Apple macOS.
+> 
+> - Can you run the program `xeyes` (UPPMAX documentation at
+> https://docs.uppmax.uu.se/software/xeyes/ ) successfully?
+> Yes.
+> 
+- > What are the exact `salloc` and `ssh` commands you use?
+> I’m using the following workflow:
+> 
+> Allocate a node, and then ssh into it.
+> salloc -A naiss2024-22-52 -p core -n 5 -t 9:30:00 --no-shell
+> 
+> The output is:
+> "salloc: Granted job allocation 42599833
+> salloc: Waiting for resource configuration
+> salloc: Nodes r485 are ready for job"
+> 
+> Then ssh into the node you got. Here I got r485.
+> ssh -X r485
+> 
+> Load bioinformatic tools:
+> module load bioinfo-tools
+> 
+> Load R packages:
+> module load R_packages
+> 
+> Load R Studio:
+> module load RStudio
+> 
+> Open R Studio:
+> rstudio
+> 
+> - What are the exact modules you load? Note that only loading the `RStudio`
+> module was recommended incorrectly!
+> 
+> See above for the modules that I always load before starting my analysis.
+> 
+> Also I have another problem: Since I migrated my data to Dardel and started to login via the local Thinlinc application, I can’t login to Rackham anymore since the interface changed to the one before.
+> 
+> Specifically, previously I was used to this window:
 
 ![](user_login_rackham_local_thinlinc_client.png)
 
-However, now the window looks like this and I can’t find the area to put my password when I want to login to Rackham:
+> However, now the window looks like this and I can’t find the area to put my password when I want to login to Rackham:
 
 ![](user_login_dardel_local_thinlinc_client.png)
 
-If that problem is solved I can also try to run the pipeline on the local ThinLinc instead of the web application, maybe this helps solving the Rstudio problem.
-
-Also, I would be up for meeting at 15:00 today if the problems still persist.
-```
+> If that problem is solved I can also try to run the pipeline on the local ThinLinc instead of the web application, maybe this helps solving the Rstudio problem.
+> 
+> Also, I would be up for meeting at 15:00 today if the problems still persist.
 
 ## Suggested solution
 
